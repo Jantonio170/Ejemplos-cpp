@@ -5,7 +5,6 @@ class Calentador
 private: 
     int temperatura;
     int incremento;
-    
 public:
     Calentador();
     void calentar();
@@ -22,12 +21,16 @@ Calentador::Calentador()
 
 void Calentador::calentar()
 {
-    temperatura +=5;
+    if(temperatura + incremento <= 30) {
+        temperatura +=incremento;
+    }
 }
 
 void Calentador::enfriar()
 {
-    temperatura -=5;
+    if(temperatura - incremento >= -10) {
+        temperatura -=incremento;
+    }
 }
 
 void Calentador::imprimeteTemperatura()
@@ -45,9 +48,13 @@ int main()
     Calentador c1;
     Calentador c2;
     
-    c1.calentar();
-    c1.imprimeteTemperatura();
+    for(int i = 0; i < 10; i ++)  {
+        c1.calentar();
+        c1.imprimeteTemperatura();
+    }
     
-    c2.enfriar();
-    c2.imprimeteTemperatura();
+    for(int i = 0; i < 10; i ++) {
+        c2.enfriar();
+        c2.imprimeteTemperatura();
+    }
 }
