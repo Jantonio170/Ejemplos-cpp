@@ -10,7 +10,8 @@ public:
     void calentar();
     void enfriar();
     void imprimeteTemperatura();
-    int accedeTemperatura() const; //Metodo de Acceso y se le agrega la palabra const para saber que el metodo no modifica las variables
+    void imprimeFarenheit() const;
+    int accedeTemperatura() const; //Metodo de Acceso y se le agrega la palabra const para saber que el metodo no modifica las variables de instancia
 }; //punto y coma obligatorio
 
 Calentador::Calentador()
@@ -43,18 +44,23 @@ int Calentador::accedeTemperatura() const
     return temperatura;
 }
 
+void Calentador::imprimeFarenheit() const
+{
+    float farenheit = temperatura * 1.8 + 32;
+    std::cout << "La temperatura es " << farenheit << "°F" << std::endl;
+}
+
 int main()
 {
     Calentador c1;
     Calentador c2;
     
-    for(int i = 0; i < 10; i ++)  {
-        c1.calentar();
-        c1.imprimeteTemperatura();
-    }
+    c1.calentar();
+    c1.imprimeteTemperatura();
+    c1.imprimeFarenheit();
     
-    for(int i = 0; i < 10; i ++) {
-        c2.enfriar();
-        c2.imprimeteTemperatura();
-    }
+    c2.enfriar();
+    c2.imprimeteTemperatura();
+    c2.imprimeFarenheit();
+
 }
